@@ -1,72 +1,57 @@
-   Monks Case
-O Monks Case é uma landing page institucional responsiva, desenvolvida como um estudo de caso de interface moderna para e-commerce/catálogo de produtos. O projeto foca em semântica, acessibilidade e performance, utilizando as melhores práticas de desenvolvimento web.
- Funcionalidades
-Menu Mobile Interativo: Sistema de navegação adaptável para dispositivos móveis com suporte a acessibilidade (Aria-labels).
+Monks Case | Landing Page
 
-Grid de Produtos e Categorias: Layout dinâmico utilizando CSS Grid e Flexbox para exibição de itens.
+O Monks Case é uma landing page institucional responsiva desenvolvida como um estudo de caso de interface moderna para e-commerce. O foco principal é a aplicação de semântica HTML5, acessibilidade (WCAG) e programação orientada a objetos no front-end.
 
-Validação de Formulário com Captcha: Sistema customizado de verificação matemática para prevenir envios automatizados.
+ Lógica do Algoritmo (JavaScript)
+O projeto utiliza Vanilla JavaScript (ES6+) estruturado em classes para gerenciar o comportamento da interface:
 
-Design Responsivo: Adaptado para resoluções de Desktop, Tablet e Mobile através de Media Queries.
+Classe MobileMenu: Gerencia o estado do menu (Aria-expanded) e detecta cliques externos para fechamento automático.
 
-Navegação Facilitada: Implementação de "Skip Links" e indicadores de rolagem (Scroll Indicators).
+Classe SecurityCaptcha: Gera números aleatórios entre 0 e 10 através do método Math.random() e valida o resultado da soma.
 
- Tecnologias Utilizadas
-O projeto foi construído "do zero" (Pure Web Stack), sem a necessidade de frameworks externos, garantindo um código leve e de fácil manutenção:
+Classe ContactForm: Intercepta o evento submit, valida campos obrigatórios e integra a verificação do Captcha antes do envio.
 
-HTML5 Semântico: Uso correto de tags como header, main, section, article e footer.
+   Funcionalidades
+Menu Mobile Interativo: Sistema de navegação adaptável com suporte a acessibilidade via aria-labels.
 
-CSS Moderno:
+Layout Dinâmico: Grid de produtos e categorias utilizando CSS Grid e Flexbox.
 
-Utilização extensiva de Variáveis CSS para fácil manutenção de cores e espaçamentos.
+Validação com Captcha: Sistema customizado de verificação matemática contra bots.
 
-Uso de clamp() para tipografia responsiva.
+Responsividade Total: Layout adaptado para Desktop, Tablet e Mobile via Media Queries.
 
-Layouts complexos com Grid e Flexbox.
+Acessibilidade: Implementação de Skip Links e suporte a prefers-reduced-motion.
 
-Vanilla JavaScript (ES6+):
+ Especificações Técnicas
+Paleta de Cores (Figma)
+Fundo (Bege): #DFDCD5
 
-Organização de código baseada em Classes (POO).
+Header/Footer (Dark): #1A1A1A
 
-Gerenciamento de estados (Menu aberto/fechado).
+Destaque (Purple): #7D26C9
 
-Lógica de validação e feedback de formulários.
-
-📁 Estrutura de Pastas
-Plaintext
+Estrutura de Pastas
+Bash
 
 /
-├── assets/          # Imagens, logos e ícones
-├── css/
-│   └── style.css    # Estilização global e variáveis
-├── js/
-│   └── script.js    # Lógica do menu, formulário e captcha
-└── index.html       # Estrutura principal
-⚙️ Como executar o projeto
-Clone este repositório:
+├── assets/  # Imagens, logos e ícones
+├── css/     # style.css (Variáveis e Reset)
+├── js/      # script.js (POO e Lógica)
+└── index.html # Marcação Semântica
+⚙️ Instalação e Execução
+Para rodar o projeto localmente:
+
+Clone o repositório:
 
 Bash
 
-git clone https://github.com/AndrezzaCoelho/monks-case.git
-Navegue até a pasta do projeto:
+git clone https://github.com/AndrezzaCoelho/monks-case-andrezza--1--monks.git
+Entre na pasta:
 
 Bash
 
-cd monks-case
-Abra o arquivo index.html em seu navegador ou utilize a extensão Live Server no VS Code para uma melhor experiência.
+cd monks-case-andrezza--1--monks
+Execute o arquivo index.html em seu navegador.
 
-  Detalhes de Design
-Paleta de Cores: O projeto utiliza tons de roxo (#7D26C9) como cor de destaque, contrastando com tons neutros e escuros (#2D2D2D) para uma estética premium.
-
-Tipografia: Foco em legibilidade com as fontes Inter e Helvetica Neue.
-
-Acessibilidade:
-
-Contraste de cores validado.
-
-Suporte a redução de movimento via prefers-reduced-motion.
-
-Navegação por teclado otimizada.
-
- Autor
+👩‍💻 Autor
 Desenvolvido por Andrezza Coelho.
