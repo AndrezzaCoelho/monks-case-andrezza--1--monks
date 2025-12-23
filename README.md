@@ -3,7 +3,7 @@
 O **Monks Case** é uma landing page institucional responsiva desenvolvida como um estudo de caso de interface moderna para e-commerce. O foco principal é a aplicação de semântica HTML5, acessibilidade (WCAG) e programação orientada a objetos no front-end.
 
 ##  Lógica do Algoritmo (JavaScript)
-O projeto utiliza Vanilla JavaScriptestruturado em classes para gerenciar o comportamento da interface:
+O projeto utiliza Vanilla JavaScript estruturado em classes para gerenciar o comportamento da interface:
 
 * **Classe MobileMenu**: Gerencia o estado do menu (Aria-expanded) e detecta cliques externos para fechamento automático.
 * **Classe SecurityCaptcha**: Gera números aleatórios entre 0 e 10 através do método `Math.random()` e valida o resultado da soma.
@@ -22,7 +22,7 @@ O projeto foi desenvolvido com foco total na fidelidade ao protótipo do Figma. 
 
 **Paleta de Cores (Figma):**
 * **Fundo (Bege):** `#DFDCD5`
-* **Header/Footer (Dark):** `#1A1A1A`
+* **Header/Footer (Dark):** `#2D2D2D`
 * **Destaque (Purple):** `#7D26C9`
 
 ## 📁 Estrutura de Pastas
