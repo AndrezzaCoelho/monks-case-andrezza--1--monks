@@ -1,6 +1,6 @@
 :root {
-    --color-dark: #2D2D2D;
-    --color-light: #EAE8E4;
+    --color-dark: #1A1A1A;
+    --color-light: ;
     --color-bg: #DFDCD5;
     --color-white: #FFFFFF;
     --color-purple: #7D26C9;
@@ -822,6 +822,7 @@ p {
 }
 
  
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .container-header {
         padding: 50px var(--spacing-2xl);
@@ -909,7 +910,7 @@ p {
     }
 
     .menu-toggle {
-        display: flex;
+        display: flex; /* Garante visibilidade do ícone hambúrguer */
     }
 
     .menu {
@@ -919,7 +920,7 @@ p {
         left: var(--spacing-md);
         right: var(--spacing-md);
         flex-direction: column;
-        background-color: rgba(45, 45, 45, 0.95);
+        background-color: var(--color-dark); /* Corrigido para usar a variável escura do Figma */
         border-radius: var(--radius-sm);
         padding: var(--spacing-md);
         gap: var(--spacing-md);
@@ -1119,14 +1120,6 @@ p {
         margin-bottom: var(--spacing-md);
     }
 
-    .app-title {
-        font-size: 24px;
-    }
-
-    .app-description {
-        font-size: 14px;
-    }
-
     .app-banner {
         padding: var(--spacing-md);
     }
@@ -1181,49 +1174,34 @@ p {
     }
 }
 
-@media (min-width: 1025px) {
-    .nav-principal {
-        transform: translateX(calc(-90px - 30%));
-    }
+/* Removido o bloco (prefers-color-scheme: dark) que alterava a cor bege do Figma */
 
-    .hero-content {
-        transform: translateX(calc(-90px - 30%));
+@media (min-width: 1025px) {
+    .nav-principal, .hero-content {
+        transform: translateX(calc(-90px - 3%)); /* Ajuste fino do recuo lateral */
     }
 
     .scroll-indicator {
-        transform: translateX(calc(-50% - 200px - 80%));
-        bottom: 18px;
+        transform: translateX(-50%);
+        left: 50%;
+        bottom: 20px;
     }
 
     .hero-background {
         width: 506px;
-        right: -40px;
+        right: 0;
         top: 0;
-        height: 480px;
-        overflow: visible;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
     }
 
     .hero-background img {
         position: absolute;
         top: 0;
-        right: -40px;
-        height: 480px;
+        right: 0;
+        height: 100%;
         width: auto;
         object-fit: cover;
-        object-position: right center;
-    }
-
-    .hero-background img:first-child {
-        z-index: 1;
-        right: -40px;
-        transform: none;
-    }
-
-    .hero-background img:last-child {
-        z-index: 2;
-        right: -32px;
-        top: 8px;
     }
 }
-
- 
