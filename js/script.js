@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         init() {
-            if (!this.toggleBtn) return;
+            if (!this.toggleBtn || !this.menu) return;
             this.toggleBtn.addEventListener('click', () => this.toggle());
             document.addEventListener('click', (e) => this.handleOutsideClick(e));
         }
@@ -21,20 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setOpen(isOpen) {
             this.toggleBtn.setAttribute('aria-expanded', isOpen);
-            this.toggleBtn.setAttribute(
-                'aria-label',
-                isOpen ? 'Fechar menu' : 'Abrir menu'
-            );
+            this.toggleBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
         }
 
         handleOutsideClick(e) {
-            const isClickInside = 
-                this.menu.contains(e.target) || 
-                this.toggleBtn.contains(e.target);
-            
-            if (!isClickInside) {
-                this.setOpen(false);
-            }
+            const isClickInside = this.menu.contains(e.target) || this.toggleBtn.contains(e.target);
+            if (!isClickInside) this.setOpen(false);
         }
     }
 
@@ -49,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         init() {
-            this.generateNewChallenge();
+            if (this.displayEl) this.generateNewChallenge();
         }
 
         generateNewChallenge() {
@@ -64,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         reset() {
-            this.inputEl.value = '';
+            if (this.inputEl) this.inputEl.value = '';
             this.generateNewChallenge();
         }
     }
@@ -78,24 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         init() {
+            if (!this.form) return;
             this.form.addEventListener('submit', (e) => this.handleSubmit(e));
         }
 
         handleSubmit(e) {
             e.preventDefault();
-
             if (!this.validateForm()) {
                 this.showFeedback('Por favor, preencha todos os campos obrigatórios.', 'error');
                 return;
             }
-
             const captchaInput = document.getElementById('campoResposta');
             if (!this.captcha.validate(captchaInput.value)) {
                 this.showFeedback('A resposta da verificação de segurança está incorreta.', 'error');
                 this.captcha.reset();
                 return;
             }
-
             this.showFeedback('Formulário enviado com sucesso!', 'success');
             this.form.reset();
             this.captcha.generateNewChallenge();
@@ -103,29 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         validateForm() {
             const inputs = this.form.querySelectorAll('input[required]');
-            return Array.from(inputs).every(input => input.value.trim() !== '');
+            return Array.from(inputs).every((input) => input.value.trim() !== '');
         }
 
         showFeedback(message, type) {
+            if (!this.feedback) return;
             this.feedback.textContent = message;
             this.feedback.className = `form-feedback ${type}`;
-            
             setTimeout(() => {
                 this.feedback.className = 'form-feedback';
             }, 5000);
         }
-    }    const mobileMenu = new MobileMenu(
-        document.getElementById('btnMobile'),
-        document.getElementById('menuPrincipal')
-    );
+    }
 
-    const captcha = new SecurityCaptcha(
-        document.getElementById('displaySoma'),
-        document.getElementById('campoResposta')
-    );
-
-    const contactForm = new ContactForm(
-        document.getElementById('formularioContato'),
-        captcha
-    );
+    const mobileMenu = new MobileMenu(document.getElementById('btnMobile'), document.getElementById('menuPrincipal'));
+    const captcha = new SecurityCaptcha(document.getElementById('displaySoma'), document.getElementById('campoResposta'));
+    const contactForm = new ContactForm(document.getElementById('formularioContato'), captcha);
 });

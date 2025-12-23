@@ -9,7 +9,7 @@
     --color-purple-pale: #DFBBFE;
     --color-gray: #666;
     --color-border: #D1D1D1;
-    
+
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
@@ -18,17 +18,17 @@
     --spacing-2xl: 40px;
     --spacing-3xl: 60px;
     --spacing-4xl: 80px;
-    
+
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
     --radius-full: 100px;
-    
+
     --font-primary: 'Inter', Arial, sans-serif;
     --font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    
+
     --transition: 0.3s ease;
-    
+
     --container-max: 1206px;
 }
 
@@ -44,7 +44,7 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background-color: var(--color-bg);
+    background-color: #DFDCD5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
@@ -77,14 +77,17 @@ h1, h2, h3 {
 
 h1 {
     font-size: clamp(24px, 5vw, 40px);
+    margin-bottom: var(--spacing-lg);
 }
 
 h2 {
     font-size: 48px;
+    margin-bottom: var(--spacing-md);
 }
 
 h3 {
     font-size: 18px;
+    margin-bottom: var(--spacing-sm);
 }
 
 p {
@@ -123,21 +126,21 @@ p {
     width: 100%;
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-lg);
 }
 
-/* ===== HEADER ===== */
 .cabecalho {
-    background-color: var(--color-dark);
+    background-color: #2D2D2D;
     color: var(--color-light);
     position: relative;
     overflow: hidden;
+    border-radius: 0 0 24px 24px;
 }
 
 .container-header {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 74px var(--spacing-4xl);
+    padding: 32px var(--spacing-4xl);
     position: relative;
 }
 
@@ -237,24 +240,31 @@ p {
     max-width: 700px;
     position: relative;
     z-index: 10;
+    padding-right: 32px;
 }
 
 .hero-title {
     max-width: 700px;
     margin-bottom: var(--spacing-md);
+    font-family: var(--font-secondary);
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: 2%;
+    font-weight: 400;
 }
 
 .hero-description {
     font-size: 24px;
     line-height: 1.4;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero-background {
     position: absolute;
     inset: 0;
-    width: 55%;
+    width: 52%;
     margin-left: auto;
+    right: 0;
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
@@ -263,22 +273,21 @@ p {
 .hero-background img {
     position: absolute;
     top: 0;
-    right: -20px;
-    height: 110%;
+    right: 0;
+    height: 100%;
     object-fit: cover;
+    object-position: right center;
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 30px;
-    left: clamp(var(--spacing-4xl), 50% - 523px, 400px);
+    bottom: 10px;
+    left: 30%;
     z-index: 10;
-    width: 70px;
-    height: 85px;
+    width: 60px;
+    height: 67px;
     transition: opacity var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
 .scroll-indicator:focus {
@@ -289,6 +298,8 @@ p {
 
 .scroll-indicator img {
     width: 70px;
+    display: block;
+    margin: 0;
     filter: brightness(0) invert(0.9);
 }
 
@@ -296,7 +307,7 @@ p {
     opacity: 0.8;
 }
 
-/* ===== MAIN SECTIONS ===== */
+ 
 .secao-cards,
 .secao-mosaico,
 .secao-categorias,
@@ -306,7 +317,7 @@ p {
 
 .section-title {
     font-size: 48px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .section-subtitle {
@@ -315,7 +326,6 @@ p {
     color: var(--color-gray);
 }
 
-/* ===== CARDS GRID ===== */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -348,7 +358,7 @@ p {
 }
 
 .card-content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
 }
 
 .card-content h3 {
@@ -361,7 +371,6 @@ p {
     color: var(--color-gray);
 }
 
-/* ===== MOSAIC SECTION ===== */
 .mosaic-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -401,7 +410,6 @@ p {
     min-height: 250px;
 }
 
-/* ===== APP SECTION ===== */
 .secao-app {
     padding: var(--spacing-3xl) 0;
 }
@@ -415,6 +423,7 @@ p {
     align-items: flex-start;
     gap: var(--spacing-lg);
     color: var(--color-white);
+    
 }
 
 .app-content {
@@ -459,7 +468,6 @@ p {
     width: auto;
 }
 
-/* ===== CATEGORIES SECTION ===== */
 .secao-categorias {
     text-align: center;
 }
@@ -499,7 +507,6 @@ p {
     outline: none;
 }
 
-/* ===== PRODUCTS SECTION ===== */
 .secao-produtos {
     background-color: var(--color-bg);
 }
@@ -542,7 +549,7 @@ p {
     max-width: 90%;
 }
 
-/* ===== BUTTONS ===== */
+ 
 .btn-primary {
     background-color: var(--color-purple-light);
     color: #401160;
@@ -565,9 +572,9 @@ p {
     transform: scale(0.98);
 }
 
-/* ===== FOOTER ===== */
+ 
 .footer-principal {
-    background-color: var(--color-dark);
+    background-color: #2D2D2D;
     color: var(--color-light);
     padding: var(--spacing-4xl) 0;
     font-family: var(--font-secondary);
@@ -814,7 +821,7 @@ p {
     outline: none;
 }
 
-/* ===== RESPONSIVE ===== */
+ 
 @media (max-width: 1024px) {
     .container-header {
         padding: 50px var(--spacing-2xl);
@@ -1174,13 +1181,49 @@ p {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: #1a1a1a;
+@media (min-width: 1025px) {
+    .nav-principal {
+        transform: translateX(calc(-90px - 30%));
     }
 
-    body {
-        background-color: #1a1a1a;
-        color: #e0e0e0;
+    .hero-content {
+        transform: translateX(calc(-90px - 30%));
+    }
+
+    .scroll-indicator {
+        transform: translateX(calc(-50% - 200px - 80%));
+        bottom: 18px;
+    }
+
+    .hero-background {
+        width: 506px;
+        right: -40px;
+        top: 0;
+        height: 480px;
+        overflow: visible;
+    }
+
+    .hero-background img {
+        position: absolute;
+        top: 0;
+        right: -40px;
+        height: 480px;
+        width: auto;
+        object-fit: cover;
+        object-position: right center;
+    }
+
+    .hero-background img:first-child {
+        z-index: 1;
+        right: -40px;
+        transform: none;
+    }
+
+    .hero-background img:last-child {
+        z-index: 2;
+        right: -32px;
+        top: 8px;
     }
 }
+
+ 
